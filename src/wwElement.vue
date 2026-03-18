@@ -4,6 +4,7 @@
       <PvInputText
         :modelValue="internalValue"
         :type="props.content?.type || 'text'"
+        :inputmode="props.content?.inputmode || null"
         :placeholder="props.content?.placeholder"
         :disabled="props.content?.disabled"
         :readonly="props.content?.readonly"
@@ -138,7 +139,7 @@ export default {
     width: 100%;
   }
 
-  &__input {
+  :deep(.pv-input-text__input) {
     @include pv-input-base;
     width: 100%;
 

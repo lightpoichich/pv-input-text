@@ -6,6 +6,7 @@ export default {
       'formInfobox',
       ['fieldName', 'customValidation', 'validation'],
       'type',
+      'inputmode',
       'initialValue',
       'placeholder',
       'invalid',
@@ -43,6 +44,32 @@ export default {
       bindingValidation: {
         type: 'string',
         tooltip: 'HTML input type: text | password | email | number | tel | url | search',
+      },
+      /* wwEditor:end */
+    },
+    inputmode: {
+      label: { en: 'Input mode' },
+      type: 'TextSelect',
+      section: 'settings',
+      options: {
+        options: [
+          { value: null, label: { en: 'Auto' } },
+          { value: 'text', label: { en: 'Text' } },
+          { value: 'numeric', label: { en: 'Numeric' } },
+          { value: 'decimal', label: { en: 'Decimal' } },
+          { value: 'tel', label: { en: 'Phone' } },
+          { value: 'email', label: { en: 'Email' } },
+          { value: 'url', label: { en: 'URL' } },
+          { value: 'search', label: { en: 'Search' } },
+          { value: 'none', label: { en: 'None' } },
+        ],
+      },
+      defaultValue: null,
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'string',
+        tooltip: 'Mobile keyboard hint: text | numeric | decimal | tel | email | url | search | none',
       },
       /* wwEditor:end */
     },
