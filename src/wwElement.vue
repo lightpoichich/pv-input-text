@@ -3,9 +3,11 @@
     <div class="pv-input-text__inner">
       <PvInputText
         :modelValue="internalValue"
+        :type="props.content?.type || 'text'"
         :placeholder="props.content?.placeholder"
         :disabled="props.content?.disabled"
         :readonly="props.content?.readonly"
+        :invalid="props.content?.invalid"
         unstyled
         :pt="passthrough"
         @input="handleInput"
@@ -14,7 +16,7 @@
         @blur="handleBlur"
       />
       <input
-        type="input"
+        :type="props.content?.type || 'text'"
         :name="props.content?.fieldName"
         :value="internalValue"
         :required="props.content?.required"
@@ -151,6 +153,15 @@ export default {
 
     &[readonly] {
       cursor: default;
+    }
+
+    &[data-p-invalid="true"] {
+      border-color: var(--pv-danger, #EF4444);
+
+      &:focus {
+        border-color: var(--pv-danger, #EF4444);
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+      }
     }
   }
 

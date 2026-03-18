@@ -5,8 +5,10 @@ export default {
     customSettingsPropertiesOrder: [
       'formInfobox',
       ['fieldName', 'customValidation', 'validation'],
+      'type',
       'initialValue',
       'placeholder',
+      'invalid',
       'disabled',
       'readonly',
       'required',
@@ -20,6 +22,30 @@ export default {
     { name: 'blur', label: { en: 'On blur' }, event: null },
   ],
   properties: {
+    type: {
+      label: { en: 'Input type' },
+      type: 'TextSelect',
+      section: 'settings',
+      options: {
+        options: [
+          { value: 'text', label: { en: 'Text' } },
+          { value: 'password', label: { en: 'Password' } },
+          { value: 'email', label: { en: 'Email' } },
+          { value: 'number', label: { en: 'Number' } },
+          { value: 'tel', label: { en: 'Phone' } },
+          { value: 'url', label: { en: 'URL' } },
+          { value: 'search', label: { en: 'Search' } },
+        ],
+      },
+      defaultValue: 'text',
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'string',
+        tooltip: 'HTML input type: text | password | email | number | tel | url | search',
+      },
+      /* wwEditor:end */
+    },
     initialValue: {
       label: { en: 'Initial value' },
       type: 'Text',
@@ -43,6 +69,19 @@ export default {
       bindingValidation: {
         type: 'string',
         tooltip: 'Placeholder text',
+      },
+      /* wwEditor:end */
+    },
+    invalid: {
+      label: { en: 'Invalid' },
+      type: 'OnOff',
+      section: 'settings',
+      bindable: true,
+      defaultValue: false,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'boolean',
+        tooltip: 'A boolean to show invalid/error state: true | false',
       },
       /* wwEditor:end */
     },
