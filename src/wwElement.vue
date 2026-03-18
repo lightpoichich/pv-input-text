@@ -1,6 +1,6 @@
 <template>
   <div class="pv-input-text">
-    <div class="pv-input-text__inner">
+    <div class="pv-input-text__inner" :class="{ 'pv-input-text--invalid': props.content?.invalid }">
       <PvInputText
         :modelValue="internalValue"
         :type="props.content?.type || 'text'"
@@ -156,13 +156,14 @@ export default {
       cursor: default;
     }
 
-    &[data-p-invalid="true"] {
-      border-color: var(--pv-danger, #EF4444);
+  }
 
-      &:focus {
-        border-color: var(--pv-danger, #EF4444);
-        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
-      }
+  &--invalid :deep(.pv-input-text__input) {
+    border-color: var(--pv-danger, #EF4444);
+
+    &:focus {
+      border-color: var(--pv-danger, #EF4444);
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
     }
   }
 
