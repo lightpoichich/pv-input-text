@@ -1,5 +1,6 @@
 import { getCurrentInstance } from 'vue';
 import PrimeVuePlugin from 'primevue/config';
+import ToastService from 'primevue/toastservice';
 
 let installed = false;
 
@@ -17,5 +18,6 @@ export function installPrimeVue() {
     unstyled: true,
     theme: 'none',
   });
+  app.use(ToastService);
   installed = true;
 }
